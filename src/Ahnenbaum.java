@@ -34,4 +34,22 @@ public class Ahnenbaum {
 
 
     }
+
+public void inorderAusgabe(){
+        besuche(lisasAhnnenbaum);
+}
+
+private void besuche(BinaryTree<Ahne>){
+
+}
+
+
+
+
+
+
+
+
+
+
 }
