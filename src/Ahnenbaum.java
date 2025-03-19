@@ -18,20 +18,64 @@ public class Ahnenbaum {
     }
 
     public void preorderAusgabe() {
-        besuche(lisasAhnnenbaum);
+        besuchePreOrder(lisasAhnnenbaum);
     }
 
-    private void besuche(BinaryTree<Ahne> b) {
+    private void besuchePreOrder(BinaryTree<Ahne> b) {
         if (!b.isEmpty()) {
             System.out.println(b.getContent().getVorname());
         }
-        if (!b.getLeftTree()) {
-            besuche(b.getLeftTree());
+        if (!b.getLeftTree().isEmpty()) {
+            besuchePreOrder(b.getLeftTree());
         }
-        if (!b.getRightTree()) {
-            besuche(b.getRightTree());
+        if (!b.getRightTree().isEmpty()) {
+            besuchePreOrder(b.getRightTree());
+        }
+
+
+    }
+
+    public void inorderAusgabe() {
+        besucheInOrder(lisasAhnnenbaum);
+    }
+
+
+    private void besucheInOrder(BinaryTree<Ahne> b) {
+        if (!b.isEmpty()) {
+            if (!b.getLeftTree().isEmpty()) {
+                besucheInOrder(b.getLeftTree());
+            }
+            System.out.println(b.getContent().getVorname());
+
+            if (!b.getRightTree().isEmpty()) {
+                besucheInOrder(b.getRightTree());
+            }
+        }
+    }
+
+    public void postorderAusgabe() {
+        besuchePostOrder(lisasAhnnenbaum);
+    }
+
+    private void besuchePostOrder(BinaryTree<Ahne> b) {
+        if (!b.isEmpty()) {
+            if (!b.getLeftTree().isEmpty()) {
+                besuchePostOrder(b.getLeftTree());
+            }
+            if (!b.getRightTree().isEmpty()) {
+                besuchePostOrder(b.getRightTree());
+            }
+            System.out.println(b.getContent().getVorname());
         }
 
 
     }
 }
+
+
+
+
+
+
+
+
